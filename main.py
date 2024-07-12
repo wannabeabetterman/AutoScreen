@@ -106,6 +106,8 @@ class ScreenshotApp(QWidget):
     def get_window_handle(self):
         if not self.screenshot_dir:
             QMessageBox.warning(self, '错误', '请先选择目录，否则默认获取')
+            return
+
         try:
             self.hwnd = win32gui.GetForegroundWindow()
             if self.hwnd:
@@ -178,8 +180,17 @@ class ScreenshotApp(QWidget):
                 break
 
 if __name__ == '__main__':
+    if getattr(sys, 'frozen', False):
+        # If the application is run as a bundle, the PyInstaller bootloader
+        # extends the sys module by a flag frozen=True and sets the app
+        # path into variable _MEIPASS'.
+        application_path = sys._MEIPASS
+    else:
+        application_path = os.path.dirname(os.path.abspath(__file__))
+
+    icon_path = os.path.join(application_path, 'icron2.png')
     app = QApplication(sys.argv)
-    app.setWindowIcon(QIcon('icon.png'))  # 设置应用程序图标
+    app.setWindowIcon(QIcon(icon_path))  # 设置应用程序图标
     ex = ScreenshotApp()
     ex.show()
     sys.exit(app.exec())
