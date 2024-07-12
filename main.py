@@ -1,16 +1,17 @@
-import sys
 import os
-import time
+import sys
 import threading
+import time
 
-import win32process
-from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QPushButton, QFileDialog, QHBoxLayout, QMessageBox, QLineEdit
-from PySide6.QtGui import QIcon
-from PySide6.QtCore import Qt
-from PIL import ImageGrab
+import keyboard
 import psutil
 import win32gui
-import keyboard
+import win32process
+from PIL import ImageGrab
+from PySide6.QtGui import QIcon
+from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QPushButton, QFileDialog, QHBoxLayout, \
+    QMessageBox, QLineEdit
+
 
 class ScreenshotApp(QWidget):
     def __init__(self):
@@ -178,6 +179,7 @@ class ScreenshotApp(QWidget):
             except Exception as e:
                 print(f"Error: {e}")
                 break
+
 
 if __name__ == '__main__':
     if getattr(sys, 'frozen', False):
