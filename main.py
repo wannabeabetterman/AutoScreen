@@ -25,7 +25,7 @@ class ScreenshotApp(QWidget):
         main_layout = QVBoxLayout()
 
         # 说明标签
-        description_label = QLabel('按 F2 获取目标窗口的句柄')
+        description_label = QLabel('先选择目录，在打开截图窗口，按 F2 获取目标窗口的句柄')
         description_label.setStyleSheet("color: #333333; font-size: 16px; font-weight: bold;")
         main_layout.addWidget(description_label)
 
