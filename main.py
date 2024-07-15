@@ -190,7 +190,7 @@ if __name__ == '__main__':
     else:
         application_path = os.path.dirname(os.path.abspath(__file__))
 
-    icon_path = os.path.join(application_path, 'icron2.png')
+    icon_path = os.path.join(application_path, './image/icron2.png')
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon(icon_path))  # 设置应用程序图标
     ex = ScreenshotApp()
